@@ -1,8 +1,18 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import configparser
 import requests
 import json
 
-url="https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/image?iterationId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-headers={'content-type':'application/octet-stream','Prediction-Key':'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'}
+# 設定ファイル読み込み
+inifile = configparser.ConfigParser()
+inifile.read('./.key', 'UTF-8')
+url = inifile.get('customvision', 'url')
+predictionkey = inifile.get('customvision', 'predictionkey')
+
+# url="https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/image?iterationId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+headers={'content-type':'application/octet-stream','Prediction-Key':predictionkey}
 
 
 def classify(path):
