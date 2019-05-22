@@ -3,18 +3,18 @@
 
 # Copyright (c) 2019 YA-androidapp(https://github.com/YA-androidapp) All rights reserved.
 
-import datetime
 from glob import glob
 import configparser
+import datetime
+import json
 import os
 import requests
-import json
 
 
 scrpath = os.path.abspath(os.path.dirname(__file__))
 os.chdir(scrpath)
 
-# このスクリプトと同じディレクトリにdatasetフォルダを作成、
+# このスクリプトと同じディレクトリにtestフォルダを作成、
 # そのサブディレクトリに訓練データと検証データからなるデータセットを格納
 root_test_dirname = 'test'
 
